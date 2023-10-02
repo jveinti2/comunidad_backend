@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NoticiasController;
+use App\Http\Controllers\AuthApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Route::prefix('/auth')->group(function () {
+    Route::post('/login', [AuthApiController::class, 'authenticate']);
+});
 Route::prefix('/noticias')->group(function () {
     Route::get('/', [NoticiasController::class, 'listData']);
 });
