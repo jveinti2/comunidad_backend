@@ -15,9 +15,7 @@ class AuthApiController extends Controller
 {
     public function authenticate(Request $request)
     {
-
         $user = User::autenticate($request->email, $request->password);
-
         if ($user) {
             return response()->json([
                 'response' => 200,
